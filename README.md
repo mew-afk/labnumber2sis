@@ -10,7 +10,6 @@ public class RabbitAndTurtle {
         for (int i = 0; i < 10; i++) {
             Thread.sleep(200);
 
-            // кто впереди — тому приоритет снижаем, кто отстал — тому повышаем
             if (rabbit.getMeters() > turtle.getMeters()) {
                 rabbit.setPriority(Thread.MIN_PRIORITY);
                 turtle.setPriority(Thread.MAX_PRIORITY);
@@ -46,7 +45,7 @@ class AnimalThread extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < 10; i++) {
-            meters += getPriority(); // чем выше приоритет, тем больше шаг
+            meters += getPriority();
             System.out.println(animalName + " пробежал(а) " + meters + " метров");
             try {
                 Thread.sleep(200);
